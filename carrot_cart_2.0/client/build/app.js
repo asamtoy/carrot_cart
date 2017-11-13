@@ -1,5 +1,3 @@
-// var requestHelper = require('./helpers/request_helper.js')
-
 var initialize = function(){
   var geolocation = {
     enableHighAccuracy: false,
@@ -21,6 +19,8 @@ var initialize = function(){
     };
 
     navigator.geolocation.getCurrentPosition(success, error, geolocation);
+
+    
 }
 
 window.addEventListener('load', initialize);

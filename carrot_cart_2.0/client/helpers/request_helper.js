@@ -1,4 +1,4 @@
-var requestHelper = {}
+var requestHelper = function(){
 
 requestHelper.getRequest = function (url, callback) {
   var xhr = new XMLHttpRequest()
@@ -32,6 +32,7 @@ requestHelper.postRequest = function (url, payload) {
 
   var jsonString = JSON.stringify(payload)
   xhr.send(jsonString)
+  }
 }
 
 module.exports = requestHelper
