@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "mocha specs"
+    "test": "mocha specs",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "mocha": "^4.0.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.16.2"
+  },
   "keywords": [],
   "description": ""
 }
