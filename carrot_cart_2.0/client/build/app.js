@@ -1,3 +1,5 @@
+// var requestHelper = require('./helpers/request_helper.js')
+
 var initialize = function(){
   var geolocation = {
     enableHighAccuracy: false,
@@ -12,13 +14,13 @@ var initialize = function(){
     console.log('Your current position is:');
     console.log(`Latitude : ${crd.latitude}`);
     console.log(`Longitude: ${crd.longitude}`);
+  };
 
     function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
     };
 
     navigator.geolocation.getCurrentPosition(success, error, geolocation);
-  }
 }
 
 window.addEventListener('load', initialize);
