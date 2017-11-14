@@ -68,13 +68,13 @@
 /***/ (function(module, exports) {
 
 var initialize = function(){
-  console.log("1");
+
   var geolocation = {
     enableHighAccuracy: false,
     timeout: 5000,
     maximumAge: 0
   };
-  console.log("2");
+
   navigator.geolocation.getCurrentPosition(success, error, geolocation);
 
   function error(err) {
@@ -83,7 +83,6 @@ var initialize = function(){
 
   function success(pos) {
     var crd = pos.coords;
-    console.log("3");
 
     console.log(crd);
     console.log('Your current position is:');
@@ -95,22 +94,17 @@ var initialize = function(){
     request.addEventListener("load", function(){
       var data = JSON.parse(request.responseText)
       console.log(data)
-      console.log("4");
+      var currentTemperature = data.main.temp - 273.15;
+      console.log("the temperature is " + data.main.temp + " Kelvin")
 
-      console.log("5");
+      console.log("the temperature is " + currentTemperature + " Celsius")
+      var temp = document.getElementById('current-temperature').innerHTML = "The current temperature is " + currentTemperature.toFixed(1) + " degrees.";
 
     })
     request.send()
 
-    console.log("6");
-
-
-    console.log("7");
-
-    console.log("8");
-
   }
-  console.log("9");
+
 }
 
 window.addEventListener('load', initialize);
