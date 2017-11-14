@@ -1,8 +1,8 @@
 module.exports = {
-  entry: __dirname + "/app.js",
+  entry: __dirname + "/client/src/app.js",
   output: {
     filename: "bundle.js",
-    path: __dirname + "/build"
+    path: __dirname + "/client/build"
   },
   devtool: 'source-map'
 }
