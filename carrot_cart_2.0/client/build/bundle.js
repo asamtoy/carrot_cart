@@ -102,13 +102,19 @@ var initialize = function(){
       var temp = document.getElementById('current-temperature').innerHTML = "The current temperature is " + currentTemperature.toFixed(1) + " degrees.";
 
       var weatherDescription = data.weather[0].description;
-      var forecast = document.getElementById('forecast').innerHTML = "The forecast for today is " + weatherDescription + ".";
+      var forecast = document.getElementById('forecast').innerHTML = "Current weather: " + weatherDescription + ".";
 
     })
     request.send()
-
   }
 
+  var request2 = new XMLHttpRequest();
+  request2.open('GET', "./server/db/seed_plants.js")
+  request2.addEventListener("load", function(){
+    var data2 = JSON.parse(request2.responseText)
+    console.log(data2)
+    request2.send()
+  })
 }
 
 window.addEventListener('load', initialize);
