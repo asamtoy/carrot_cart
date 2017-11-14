@@ -67,6 +67,8 @@
 /* 0 */
 /***/ (function(module, exports) {
 
+// var PlantQuery = require('./server/db/plantQuery.js'); //NEW
+
 var initialize = function(){
 
   var geolocation = {
@@ -109,12 +111,14 @@ var initialize = function(){
   }
 
   var request2 = new XMLHttpRequest();
-  request2.open('GET', "./server/db/seed_plants.js")
+  request2.open('GET', "localhost:3000/(ROUTE/resource/seeds)")
   request2.addEventListener("load", function(){
     var data2 = JSON.parse(request2.responseText)
     console.log(data2)
     request2.send()
   })
+  // var query = new PlantQuery();
+
 }
 
 window.addEventListener('load', initialize);

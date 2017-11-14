@@ -1,5 +1,7 @@
 db.dropDatabase();
 
+use plants;
+
 db.plants.insert([
 
   {
