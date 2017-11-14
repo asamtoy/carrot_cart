@@ -89,6 +89,9 @@ var initialize = function(){
     console.log(`Latitude : ${crd.latitude}`);
     console.log(`Longitude: ${crd.longitude}`);
 
+    var latitude = document.getElementById('geolocation-lat').innerHTML = "Your latitude is " + crd.latitude + ".";
+    var longitude = document.getElementById('geolocation-lon').innerHTML = "Your longitude is " + crd.longitude + ".";
+
     var request = new XMLHttpRequest();
     request.open('GET', "http://api.openweathermap.org/data/2.5/weather?lat=" + crd.latitude.toFixed(0) + ",&lon=" + crd.longitude + "&APPID=36a7fd6e1d882bfe1c58d1db485ab9b5")
     request.addEventListener("load", function(){
