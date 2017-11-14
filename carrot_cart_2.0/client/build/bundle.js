@@ -95,10 +95,13 @@ var initialize = function(){
       var data = JSON.parse(request.responseText)
       console.log(data)
       var currentTemperature = data.main.temp - 273.15;
-      console.log("the temperature is " + data.main.temp + " Kelvin")
-
       console.log("the temperature is " + currentTemperature + " Celsius")
+
       var temp = document.getElementById('current-temperature').innerHTML = "The current temperature is " + currentTemperature.toFixed(1) + " degrees.";
+      var temp = document.getElementById('current-temperature').innerHTML = "The current temperature is " + currentTemperature.toFixed(1) + " degrees.";
+
+      var description = data.weather[0].description;
+      var forecast = document.getElementById('forecast').innerHTML = "The forecast for today is " + description + ".";
 
     })
     request.send()
