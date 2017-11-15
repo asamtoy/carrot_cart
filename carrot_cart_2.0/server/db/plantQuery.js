@@ -9,14 +9,14 @@ PlantQuery.prototype = {
   all: function(){
     MongoClient.connect(this.url, function(err, db) {
       if(db){
-        console.log("PlantQuery connected!");
+        console.log("PlantQuery connected! Dance!");
       }
     });
   }
 };
 
 PlantQuery.prototype = {
-  makeRequest: function(url, callback){ 
+  makeRequest: function(url, callback){
     var request = new XMLHttpRequest();
     request.open("GET", url);
     request.onload = callback;

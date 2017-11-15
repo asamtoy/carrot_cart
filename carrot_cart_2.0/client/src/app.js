@@ -1,4 +1,4 @@
-// var PlantQuery = require('./server/db/plantQuery.js'); //NEW
+var PlantQuery = require('./server/db/plantQuery.js'); 
 
 var initialize = function(){
 
@@ -40,8 +40,6 @@ var initialize = function(){
     })
     request.send()
   }
-
-  
 
   var request2 = new XMLHttpRequest();
   request2.open('GET', "localhost:3000/plants")

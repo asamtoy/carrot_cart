@@ -65,9 +65,9 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-// var PlantQuery = require('./server/db/plantQuery.js'); //NEW
+var PlantQuery = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./server/db/plantQuery.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())); 
 
 var initialize = function(){
 
@@ -109,8 +109,6 @@ var initialize = function(){
     })
     request.send()
   }
-
-  
 
   var request2 = new XMLHttpRequest();
   request2.open('GET', "localhost:3000/plants")
