@@ -9,10 +9,11 @@ app.get('/', function (req, res) {
 app.get('/api/plants', function(req, res){
     MongoClient.connect(url, function(err, db) {
       var collection = db.collection('plants');
-      collection.find({}).toArray(function(err, docs) {
-        res.json(docs);
-        db.close();
-      });
+      console.log(collection)
+      // collection.find({}).toArray(function(err, docs) {
+      //   res.json(docs);
+      //   db.close();
+      // });
     });
   });
 

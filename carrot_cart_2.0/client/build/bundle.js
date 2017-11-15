@@ -71,7 +71,7 @@
 var requestHelper = __webpack_require__(1)
 
 var getPlantsFromDb =  function(){
-  console.log('request to my api')
+  console.log('request made to my api')
   requestHelper.getRequest("http://localhost:3000/api/plants", function(plants){
     console.log(plants)
   })
