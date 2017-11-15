@@ -41,14 +41,16 @@ var initialize = function(){
     request.send()
   }
 
+  
+
   var request2 = new XMLHttpRequest();
-  request2.open('GET', "localhost:3000/(ROUTE/resource/seeds)")
+  request2.open('GET', "localhost:3000/plants")
   request2.addEventListener("load", function(){
     var data2 = JSON.parse(request2.responseText)
     console.log(data2)
     request2.send()
   })
-  // var query = new PlantQuery();
+
 
 }
 

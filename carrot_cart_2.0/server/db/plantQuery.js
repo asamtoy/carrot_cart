@@ -15,8 +15,8 @@ PlantQuery.prototype = {
   }
 };
 
-PlantQuery.prototype = { //NEW
-  makeRequest: function(url, callback){ //NEW
+PlantQuery.prototype = {
+  makeRequest: function(url, callback){ 
     var request = new XMLHttpRequest();
     request.open("GET", url);
     request.onload = callback;
