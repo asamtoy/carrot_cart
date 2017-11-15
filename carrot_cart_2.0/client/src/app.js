@@ -1,6 +1,15 @@
-var PlantQuery = require('./server/db/plantQuery.js'); 
+// var PlantQuery = require('././server/db/plantQuery.js');
+var requestHelper = require('./helpers/request_helper.js')
+
+var getPlantsFromDb =  function(){
+  console.log('request to my api')
+  requestHelper.getRequest("http://localhost:3000/api/plants", function(plants){
+    console.log(plants)
+  })
+}
 
 var initialize = function(){
+  getPlantsFromDb()
 
   var geolocation = {
     enableHighAccuracy: false,
@@ -41,15 +50,14 @@ var initialize = function(){
     request.send()
   }
 
-  var request2 = new XMLHttpRequest();
-  request2.open('GET', "localhost:3000/plants")
-  request2.addEventListener("load", function(){
-    var data2 = JSON.parse(request2.responseText)
-    console.log(data2)
-    request2.send()
-  })
 
+  // var request2 = new XMLHttpRequest();
+  // request2.open('GET', "localhost:3000/api/plants")
+  // request2.addEventListener("load", function(){
+  //   var data2 = JSON.parse(request2.responseText)
+  //   console.log(data2)
+  // })
+  // request2.send()
 
 }
-
 window.addEventListener('load', initialize);

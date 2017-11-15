@@ -1,7 +1,7 @@
 var MongoClient = require('mongodb').MongoClient
 
 var PlantQuery = function() {
-  this.url = "mongodb://localhost:3000/plants"
+  this.url = "mongodb://localhost:27017/plants"
   this.collection = collection;
 }
 
@@ -9,7 +9,7 @@ PlantQuery.prototype = {
   all: function(){
     MongoClient.connect(this.url, function(err, db) {
       if(db){
-        console.log("PlantQuery connected! Dance!");
+        console.log("PlantQuery connected! TIME TO DANCE!");
       }
     });
   }

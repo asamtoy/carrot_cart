@@ -100,7 +100,7 @@ db.plants.insert([
 },
 
 {
-  name: "turnip"
+  name: "turnip",
   mintemp: 15
 },
 

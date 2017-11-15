@@ -67,9 +67,18 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var PlantQuery = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./server/db/plantQuery.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())); 
+// var PlantQuery = require('././server/db/plantQuery.js');
+var requestHelper = __webpack_require__(1)
+
+var getPlantsFromDb =  function(){
+  console.log('request to my api')
+  requestHelper.getRequest("http://localhost:3000/api/plants", function(plants){
+    console.log(plants)
+  })
+}
 
 var initialize = function(){
+  getPlantsFromDb()
 
   var geolocation = {
     enableHighAccuracy: false,
@@ -110,18 +119,60 @@ var initialize = function(){
     request.send()
   }
 
-  var request2 = new XMLHttpRequest();
-  request2.open('GET', "localhost:3000/plants")
-  request2.addEventListener("load", function(){
-    var data2 = JSON.parse(request2.responseText)
-    console.log(data2)
-    request2.send()
-  })
 
+  // var request2 = new XMLHttpRequest();
+  // request2.open('GET', "localhost:3000/api/plants")
+  // request2.addEventListener("load", function(){
+  //   var data2 = JSON.parse(request2.responseText)
+  //   console.log(data2)
+  // })
+  // request2.send()
 
 }
-
 window.addEventListener('load', initialize);
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+var requestHelper = {}
+
+requestHelper.getRequest = function (url, callback) {
+  var xhr = new XMLHttpRequest()
+  xhr.open('GET', url)
+
+  xhr.addEventListener('load', function () {
+    var jsonString = xhr.responseText
+    var data = JSON.parse(jsonString)
+    callback(data)
+  })
+  xhr.send()
+}
+
+requestHelper.findRequest = function (url, callback) {
+  var xhr = new XMLHttpRequest()
+  xhr.open('GET', url)
+
+  xhr.addEventListener('load', function () {
+    var jsonString = xhr.responseText
+    var data = JSON.parse(jsonString)
+    callback(data)
+  })
+  xhr.send()
+}
+
+requestHelper.postRequest = function (url, payload) {
+  var xhr = new XMLHttpRequest()
+  xhr.open('POST', url)
+
+  xhr.setRequestHeader('Content-Type', 'application/json')
+
+  var jsonString = JSON.stringify(payload)
+  xhr.send(jsonString)
+  }
+
+module.exports = requestHelper
 
 
 /***/ })
